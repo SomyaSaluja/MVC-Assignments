@@ -1,0 +1,45 @@
+﻿@model EmployeePartialViewDemo.Models.EntityEmployee
+
+
+
+<div id='myModal' class='modal' style="width:70% ;height:80%" >  
+   <div class="modal-dialog" >  
+       <div class="modal-content" style="width:70% ;height:55%;border:3px solid black ;padding: 20px; margin: 15% auto;">  
+           <div class="modal-header">  
+                <button type="button" id="closebtn" class="close" data-dismiss="modal" aria-hidden="true" style="float:right">×</button>  
+                <h4 class="modal-title" id="myModalLabel">Employee Detail</h4>  
+           </div> 
+   
+            <div id='myModalContent'>
+                @using (Html.BeginForm("UpdateRecord", "Home", FormMethod.Post))
+                {
+                 @Html.DisplayNameFor(model => model.EmpID)  
+         
+                 <input name="txtAge" value="model =>model.EmpId" />  
+                 <br />
+          
+                 @Html.DisplayNameFor(model => model.FirstName)  
+         
+                 @Html.TextBoxFor(model => model.FirstName)  
+                 <br />
+      
+                 @Html.DisplayNameFor(model => model.LastName)  
+         
+                 @Html.TextBoxFor(model => model.LastName)  
+                <br />
+                <input type="submit" id="updateButton" name="Update" value="Update" 
+                    style="background-color: teal;color: white;padding: 12px 20px;cursor: pointer;float: right;"  />
+                }
+           </div>                
+       </div>  
+    </div>  
+</div>   
+   
+@section scripts  
+{  
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>  
+    <script src="~/Scripts/bootstrap.js"></script>  
+    <script src="~/Scripts/bootstrap.min.js"></script>  
+    <script src="~/Scripts/DetailPageScript.js"> </script>  
+  
+}  

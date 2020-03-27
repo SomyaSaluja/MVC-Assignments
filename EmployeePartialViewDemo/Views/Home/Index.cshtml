@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+@model EmployeePartialViewDemo.Models.EntityEmployee
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+<script type="text/javascript" src="~/Scripts/MainPageAjaxScript.js">   </script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="~/Scripts/DetailPageScript.js"> </script>  
+ <!--<script src="~/Scripts/jquery-1.10.2.min.js"></script>  
+    <script src="~/Scripts/bootstrap.js"></script>  
+    <script src="~/Scripts/bootstrap.min.js"></script>  -->
+  
+
+<h2>Employee Display</h2>
+<div id="empList">
+
+</div>
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">   
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Employee Details</h4>
+        </div>
+        <div id='myModalContent'>
+                @using (Html.BeginForm("UpdateRecord", "Home", FormMethod.Post))
+                {
+                 @Html.DisplayNameFor(Model => Model.EmpID)  
+         
+                 @Html.TextBoxFor(Model =>Model.EmpID)
+                 <br />
+          
+                 @Html.DisplayNameFor(Model => Model.FirstName)  
+         
+                 @Html.TextBoxFor(Model => Model.FirstName)  
+                 <br />
+      
+                 @Html.DisplayNameFor(Model => Model.LastName)  
+         
+                 @Html.TextBoxFor(Model => Model.LastName)  
+                <br />
+                <input type="submit" id="updateButton" name="Update" value="Update" 
+                    style="background-color: teal;color: white;padding: 12px 20px;cursor: pointer;float: right;"  />
+                }
+           </div>               
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>      
+    </div>
+  </div> 
+</div>

@@ -1,0 +1,32 @@
+﻿
+@model IEnumerable<EmployeePartialViewDemo.Models.EntityEmployee>  
+
+<button type="button" value="Add Employee" id="addEmp" style="cursor:pointer; padding: 12px 25px"  onclick="location.href ='@Url.Action("Details" ,"Home",new {id=0})'"/>Add Employee
+<table style="padding:2px"; border="1" >  
+    <tr>  
+
+        <th>ID</th>  
+        <th>Firstname</th>  
+        <th>LastName</th>  
+
+    </tr>  
+    @foreach (var item in Model)  
+    {  
+        <tr>  
+            <td>@item.EmpID</td>  
+            <td>@item.FirstName</td>  
+            <td>@item.LastName</td>  
+            <td> <button type="button"
+                onclick="location.href ='@Url.Action("Details" ,"Home",new {id=@item.EmpID})'"
+                data-toggle="modal"
+                 data-target="#myModal" value="Edit"
+                style="padding:10px 20px"/>Edit Details
+            </td>
+          <td><a onclick="Delete(@item.EmpID)">Delete</a></td>
+        </tr>  
+    }  
+</table>  
+
+<script src="~/Scripts/DetailPageScript.js"> </script>  
+
+   
